@@ -68,19 +68,9 @@ if see_graph:
         )
         ax.set_title(f'Distribution by {graph_filter_by}')
 
-    # ---------------- SCATTER PLOT ----------------
-    elif graph_selected == "Scatter Plot":
-        ax.scatter(quantity_sold_sum[graph_filter_by], quantity_sold_sum['Quantity Sold'])
-        ax.set_xlabel(graph_filter_by)
-        ax.set_ylabel('Quantity Sold')
-        ax.set_title(f'Scatter Plot of Quantity Sold by {graph_filter_by}')
-
-        # Add data labels
-        for x, y in zip(quantity_sold_sum[graph_filter_by], quantity_sold_sum['Quantity Sold']):
-            ax.text(x, y, str(y), ha='center', va='bottom')
-
     # Only rotate X labels for charts that *have* an X-axis
     if graph_selected in ["Bar Graph", "Line Graph", "Scatter Plot"]:
         plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
+
     st.pyplot(fig)
