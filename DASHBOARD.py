@@ -24,7 +24,7 @@ st.dataframe(df)
 
 # GRAPHS
 graph_filter_by = st.selectbox('Filter by:',['Brand','Month','Year','Country'])
-graph_selected = st.selectbox('Select graph:',['Bar Graph','Line Graph','Pie Chart','Scatter plot'])
+graph_selected = st.selectbox('Select graph:',['Bar Graph','Line Graph','Pie Chart'])
 quantity_sold_sum = df.groupby(graph_filter_by)['Quantity Sold'].sum().reset_index()
 see_graph = st.button('See graph')
 
@@ -74,3 +74,4 @@ if see_graph:
     plt.tight_layout()
 
     st.pyplot(fig)
+
